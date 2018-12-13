@@ -1,0 +1,24 @@
+.wrapper{
+
+}
+.wrapper:hover{
+    opacity: .6;
+}
+.header {
+    font-size: 20px;
+    text-align: center;
+    color: antiquewhite;
+}
+
+.image {
+    width: 200px;
+    height: 300px;
+}
+
+.desc {
+    color: antiquewhite;
+}
+
+.genre {
+    color: antiquewhite;
+}
