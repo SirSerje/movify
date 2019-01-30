@@ -8,18 +8,23 @@ const CardList = ({moviesProp}) => { //destructuring
     return (
         <div className={style.container}>
             <div className={style.list}>
-                {moviesProp.map(moveItem => (
-                    <Link to="/:id">
+                {moviesProp.map(moveItem => {
+        //sorry for wrong styling
+                    const {id, title, image, description, genre} = movieItem;
+               return <Link to="/:id">
                         <div className={style.item}
-                             key={moveItem.id}>
-                            <Card title={moveItem.title}
-                                  image={moveItem.image}
-                                  description={moveItem.description}
-                                  genre={moveItem.genre}
+                             key={id}>
+                            <Card title={title}
+                                  image={image}
+                                  description={description}
+                                  genre={genre}
                             />
                         </div>
                     </Link>
-                ))}
+               
+    
+        
+        })}
             </div>
         </div>
     );
