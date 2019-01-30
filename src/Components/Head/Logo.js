@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './Logo.module.css'
 
-export const Logo = ({logoUrl, logoImg}) => (
+const Logo = ({logoUrl, logoImg}) => (
         <a href={logoUrl}
            className={style.link}>
             <img className={style.image}
@@ -9,3 +9,4 @@ export const Logo = ({logoUrl, logoImg}) => (
                  alt="logo"/>
         </a>
 );
+export default Logo;

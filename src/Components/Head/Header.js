@@ -1,10 +1,12 @@
 import React, {Fragment} from 'react';
 import {Navbar} from "./Navbar";
+// import RouteNav from "./RouteNav";
 
-export const Header = () => {
+const Header = () => {
     return (
         <Fragment>
-            <Navbar/>
+            <Navbar/> {/*'Blog', 'Photo', 'Bio', 'Shop', 'Contact'*/}
         </Fragment>
     );
 };
+export default Header;

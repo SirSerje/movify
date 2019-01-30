@@ -1,8 +1,16 @@
 import React, {Component, Fragment} from 'react';
-import {Header} from "./Head/Header";
-import {SearchField} from "./Search/SearchField";
-import {CardList} from "./Card/CardList";
-import movies from './movies'
+import Header from "./Head/Header";
+import SearchField from "./Search/SearchField";
+import CardList from "./Card/CardList";
+import movies from './movies';
+// import RouteNav from "./Head/RouteNav";
+import {Route, Switch} from "react-router-dom";
+import Blog from "./Head/Blog";
+import Bio from "./Head/Bio";
+import Shop from "./Head/Shop";
+import Contact from "./Head/Contact";
+import {Movie} from "./Movie";
+
 
 //"= (filter) =>" this is Public class field
 const filterMovieName = (item) => movies.filter(movies => movies.title.toLocaleLowerCase().includes(item.toLowerCase()));
@@ -31,7 +39,17 @@ export class App extends Component {
                 <SearchField filterProp={filter}
                              onChangeFilterProp={this.handleFilter}
                 />
-                <CardList moviesProp={filterMovies}/>
+                <Switch>
+                    {/*<Route path='/home' component={CardList}/>*/}
+                    <Route exact path='/' render={()=> <CardList moviesProp={filterMovies} />}/>
+                    <Route path='/:id' component={Movie}/>
+                    <Route path='/blog' component={Blog}/>
+                    <Route path='/bio' component={Bio}/>
+                    <Route path='/shop' component={Shop}/>
+                    <Route path='/contact' component={Contact}/>
+                </Switch>
+                {/*<RouteNav/> /!*description of 'Home', 'Blog', 'Photo', 'Bio', 'Shop', 'Contact'*!/*/}
+                {/*<CardList moviesProp={filterMovies}/>*/}
             </Fragment>
         );
     }

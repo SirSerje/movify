@@ -2,8 +2,8 @@
 import React from 'react';
 import style from './Card.module.css'
 
-//functional component or stupid component
-export const Card = ({title, image, description, genre}) => ( //props
+//stateless component
+const Card = ({title, image, description, genre}) => ( //props from
     <div className={style.wrapper}>
         <h2 className={style.header}>{title}</h2>
         <img className={style.image}
@@ -14,3 +14,4 @@ export const Card = ({title, image, description, genre}) => ( //props
         <p className={style.genre}>{genre}</p>
     </div>
 );
+export default Card;
