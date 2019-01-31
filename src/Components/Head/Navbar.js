@@ -1,12 +1,11 @@
 import React, {Component} from 'react';
-import style from './Navbar.module.css';
+import style from '../../css/Navbar.module.css';
 import Logo from "./Logo";
 import {NavLink} from "react-router-dom";
 
-/*CLEVER COMPONENT*/
 export class Navbar extends Component {
     render() {
-        const pages = ['Blog', 'Bio', 'Shop', 'Contact'];
+        const pages = ['Blog', 'Bio', 'Shop', 'Contact', 'Login'];
         const navLinks = pages.map(page => {
             return (
                 <NavLink className={style.link}

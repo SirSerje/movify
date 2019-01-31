@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './SearchField.module.css';
+import style from '../../css/SearchField.module.css';
 
 const SearchField = ({filterProp, onChangeFilterProp}) => {
     return (

@@ -1,12 +1,12 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import {Navbar} from "./Navbar";
-// import RouteNav from "./RouteNav";
+import {LoginForm} from "../Login/LoginForm";
 
-const Header = () => {
-    return (
-        <Fragment>
-            <Navbar/> {/*'Blog', 'Photo', 'Bio', 'Shop', 'Contact'*/}
-        </Fragment>
+const Header = () => (
+        <>
+            <Navbar/> {/*['Blog', 'Bio', 'Shop', 'Contact']*/}
+            <LoginForm/>
+        </>
     );
-};
+
 export default Header;

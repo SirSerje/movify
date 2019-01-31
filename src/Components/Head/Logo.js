@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './Logo.module.css'
+import style from '../../css/Logo.module.css'
 
 const Logo = ({logoUrl, logoImg}) => (
         <a href={logoUrl}
