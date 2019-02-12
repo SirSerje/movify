@@ -7,12 +7,36 @@ import Blog from "./Head/Blog";
 import Bio from "./Head/Bio";
 import Shop from "./Head/Shop";
 import Contact from "./Head/Contact";
-import {Movie} from "./Movie";
+// import {Movie} from "./Movie";
 import {filterMovieName} from "../utils/filterMovie";
 import {LoginForm} from "./Login/LoginForm";
+// import axios from 'axios';
 
+class App extends Component {
 
-export class App extends Component {
+    componentDidMount() {
+       /* axios.post('http://localhost:4000/data', { //address server http://localhost:4000 then / data - query
+            firstName: 'Fred',
+            lastName: 'Flintstone'
+        })
+            .then((response) => {
+                console.log("response", response);
+                console.log("response.config.data", response.config.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+*/
+        /*axios.post('http://localhost:4000/data/user-3', {
+        })
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });*/
+    }
+
     state = {
         filter: '', //hold filtered values
     };
@@ -35,7 +59,7 @@ export class App extends Component {
                 />
                 <Switch>
                     <Route exact path='/' render={() => <CardList moviesProp={filterMovies}/>}/>
-                    <Route path='/:id' component={Movie}/>
+                    {/*<Route path='/:id' component={Movie}/>*/}
                     <Route path='/blog' component={Blog}/>
                     <Route path='/bio' component={Bio}/>
                     <Route path='/shop' component={Shop}/>
@@ -46,3 +70,5 @@ export class App extends Component {
         );
     }
 }
+
+export default App;

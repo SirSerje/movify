@@ -1,22 +1,78 @@
 import React, {Component} from 'react'
 import style from '../../css/Login.module.css'
+import axios from "axios";
+
 
 const isLogged = false;
 
 export class LoginForm extends Component {
+    state = {
+        username: "",
+        email: "",
+        password: "",
+    };
+
+    onSubmit = (e) => {
+        e.preventDefault();
+        console.log(`name: ${this.state.username}, email: ${this.state.email}, password: ${this.state.password}`);
+        //axios send results from form to server
+        axios.post('http://localhost:4000/register', {
+            username: this.state.username,
+            email: this.state.email,
+            password: this.state.password,
+        })
+        //form result save in state
+            .then(() => {
+                this.setState({
+                    username: "",
+                    email: "",
+                    password: "",
+                })
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    };
+
+    onChangeName = (e) => {
+        this.setState({
+            username: e.target.value,
+        })
+    };
+
+    onChangeMail = (e) => {
+        this.setState({
+            email: e.target.value,
+        })
+    };
+
+    onChangePass = (e) => {
+        this.setState({
+            password: e.target.value,
+        })
+    };
+
+    componentDidMount() {
+
+    }
+
     render() {
+        const {username, email, password} = this.state;
         return (
             <>
                 <section className={style.wrapper}>
-                    <form action="#"
+                    <form action="/register"
                           method="POST"
                           className={style.form}
+                          onSubmit={this.onSubmit}
                     >
                         <label>Ваше имя:</label>
                         <input type="text"
                                placeholder="Enter Username"
                                name="username"
                                id="username"
+                               value={username}
+                               onChange={this.onChangeName}
                         />
 
                         <label>Email:</label>
@@ -24,6 +80,8 @@ export class LoginForm extends Component {
                                placeholder="Enter Email"
                                name="email"
                                id="email"
+                               value={email}
+                               onChange={this.onChangeMail}
                         />
 
                         <label>Password:</label>
@@ -32,6 +90,8 @@ export class LoginForm extends Component {
                                name="psw"
                                id="psw"
                                size="15"
+                               value={password}
+                               onChange={this.onChangePass}
                         />
 
                         {!isLogged ?

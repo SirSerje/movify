@@ -1,10 +1,24 @@
 import React from 'react';
+import {connect} from "react-redux";
+import countActions from '../../actions/countActions';
 
-export const Blog = () => (
+const Blog = ({value, increment, decrement, reset}) => (
     <div>
-        <h1>Blog</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dolor esse facere fuga, hic id, iure, necessitatibus numquam pariatur quaerat repudiandae sed temporibus tenetur ullam voluptatibus. Consequuntur enim explicabo quis.</p>
+        <h1>{value}</h1>
+        <button onClick={increment}>Inc</button>
+        <button onClick={decrement}>Dec</button>
+        <button onClick={reset}>Reset</button>
     </div>
 );
 
-export default Blog;
+const mapStateToProps = state => ({
+    value: state.value,
+});
+console.log();
+const mapDispatchToProps = dispatch => ({
+    increment: () => dispatch(countActions.increment(5))
+});
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps)(Blog);
