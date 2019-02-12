@@ -1,11 +1,11 @@
 import React from 'react';
 import {Navbar} from "./Navbar";
-import {LoginForm} from "../Login/LoginForm";
+// import {LoginForm} from "../Login/LoginForm";
 
 const Header = () => (
         <>
             <Navbar/> {/*['Blog', 'Bio', 'Shop', 'Contact']*/}
-            <LoginForm/>
+            {/*<LoginForm/>*/}
         </>
     );
 

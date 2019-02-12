@@ -10,41 +10,16 @@ import Contact from "./Head/Contact";
 // import {Movie} from "./Movie";
 import {filterMovieName} from "../utils/filterMovie";
 import {LoginForm} from "./Login/LoginForm";
-// import axios from 'axios';
 
 class App extends Component {
-
-    componentDidMount() {
-       /* axios.post('http://localhost:4000/data', { //address server http://localhost:4000 then / data - query
-            firstName: 'Fred',
-            lastName: 'Flintstone'
-        })
-            .then((response) => {
-                console.log("response", response);
-                console.log("response.config.data", response.config.data);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-*/
-        /*axios.post('http://localhost:4000/data/user-3', {
-        })
-            .then(function (response) {
-                console.log(response);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });*/
-    }
-
     state = {
-        filter: '', //hold filtered values
+        filter: '',
     };
 
     //Public class field:  https://youtu.be/cUPZFk_wbks?t=1655
-    handleFilter = event => { //Public class field "= event =>"
-        this.setState({ //method modify state
-            filter: event.target.value //take value from input field
+    handleFilter = event => {
+        this.setState({
+            filter: event.target.value,
         });
     };
 

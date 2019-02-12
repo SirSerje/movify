@@ -9,7 +9,7 @@ export class Navbar extends Component {
         const navLinks = pages.map(page => {
             return (
                 <NavLink className={style.link}
-                         activeStyle={style.activeLink}
+                         // activeStyle={style.activeLink}
                          to={page} //"{page}" - this is each element of array's pages and "Link to=" it's link to the component
                          key={page}
                          href={'/' + page}>{page}

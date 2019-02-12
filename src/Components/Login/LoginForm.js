@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import style from '../../css/Login.module.css'
 import axios from "axios";
-
+import ShowDataDB from "./ShowDataDB";
 
 const isLogged = false;
 
@@ -52,9 +52,6 @@ export class LoginForm extends Component {
         })
     };
 
-    componentDidMount() {
-
-    }
 
     render() {
         const {username, email, password} = this.state;
@@ -95,12 +92,13 @@ export class LoginForm extends Component {
                         />
 
                         {!isLogged ?
-                            <button type="submit">Log In</button>
+                            <button disabled={this.hendleDisUnable} type="submit">Log In</button>
                             :
                             <button type="submit">Log Out</button>
                         }
                     </form>
                 </section>
+                <ShowDataDB/>
             </>
         );
     }

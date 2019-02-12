@@ -1,0 +1,67 @@
+import React, {Component} from 'react';
+
+class NewPost extends Component {
+    state = {
+        title: "",
+        body: "",
+    };
+
+    handleSubmit = e => {
+        e.preventDefault();
+        if (this.state.title.trim() && this.state.body.trim()) {
+            console.log(this.state);
+            this.handleReset();
+        }
+    };
+
+    handleInputChange = (e) => {
+        this.setState({
+            [e.target.value]: e.target.value,
+        })
+    };
+
+    handleReset = () => {
+        this.setState({
+            title: "",
+            body: "",
+        })
+    };
+
+    render() {
+        return (
+            <div>
+                <form onChange={this.handleSubmit}>
+                    <div>
+                        <input type="text"
+                               placeholder="Title"
+                               className="form-control"
+                               name="title"
+                               onChange={this.handleInputChange}
+                               value={this.state.title}
+                        />
+                    </div>
+                    <div>
+                        <textarea name="body"
+                                  id=""
+                                  cols="20"
+                                  rows="10"
+                                  placeholder="Body"
+                                  className="form-control"
+                                  onChange={this.handleInputChange}
+                                  value={this.state.body}>
+                        </textarea>
+                    </div>
+                    <div>
+                        <button type="submit" className="btn btn-primary">Add Post</button>
+                        <button type="button"
+                                className="btn btn-warning"
+                                onChange={this.handleReset}>Reset
+                        </button>
+                    </div>
+                </form>
+            </div>
+        );
+    }
+}
+
+export default NewPost;
