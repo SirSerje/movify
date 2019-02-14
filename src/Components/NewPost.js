@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+import {connect} from "react-redux";
+import {createPost} from '../actions/postAction'
+import mapDispatchToProps from "react-redux/es/connect/mapDispatchToProps";
 
 class NewPost extends Component {
     state = {
@@ -10,6 +13,7 @@ class NewPost extends Component {
         e.preventDefault();
         if (this.state.title.trim() && this.state.body.trim()) {
             console.log(this.state);
+            this.props.onAddPost(this.state);
             this.handleReset();
         }
     };
@@ -25,6 +29,14 @@ class NewPost extends Component {
             title: "",
             body: "",
         })
+    };
+
+    const mapDispatchToProps = dispatch => {
+        return {
+            onAddPost: post => {
+                dispatch(createPost(post))
+            }
+        }
     };
 
     render() {
@@ -64,4 +76,5 @@ class NewPost extends Component {
     }
 }
 
-export default NewPost;
+
+export default connect(null, mapDispatchToProps)(NewPost);
