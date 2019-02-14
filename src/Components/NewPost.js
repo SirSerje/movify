@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {createPost} from '../actions/postAction'
-import mapDispatchToProps from "react-redux/es/connect/mapDispatchToProps";
 
 class NewPost extends Component {
     state = {
@@ -29,14 +28,6 @@ class NewPost extends Component {
             title: "",
             body: "",
         })
-    };
-
-    const mapDispatchToProps = dispatch => {
-        return {
-            onAddPost: post => {
-                dispatch(createPost(post))
-            }
-        }
     };
 
     render() {
@@ -76,5 +67,13 @@ class NewPost extends Component {
     }
 }
 
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onAddPost: post => {
+      dispatch(createPost(post))
+    }
+  }
+};
 
 export default connect(null, mapDispatchToProps)(NewPost);
