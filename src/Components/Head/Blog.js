@@ -1,6 +1,7 @@
 import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css"
 import React, {Component} from 'react';
-import NewPost from "../NewPost";
+import PostList from "../Post/PostList";
+import NewPost from "../Post/NewPost";
 
 class Blog extends Component {
     render() {
@@ -11,7 +12,7 @@ class Blog extends Component {
                         <NewPost/>
                     </div>
                     <div className="col-md-6">
-                        Display Post
+                        <PostList/>
                     </div>
                 </div>
             </div>

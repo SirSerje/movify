@@ -7,7 +7,6 @@ import Blog from "./Head/Blog";
 import Bio from "./Head/Bio";
 import Shop from "./Head/Shop";
 import Contact from "./Head/Contact";
-// import {Movie} from "./Movie";
 import {filterMovieName} from "../utils/filterMovie";
 import {LoginForm} from "./Login/LoginForm";
 
@@ -34,7 +33,6 @@ class App extends Component {
                 />
                 <Switch>
                     <Route exact path='/' render={() => <CardList moviesProp={filterMovies}/>}/>
-                    {/*<Route path='/:id' component={Movie}/>*/}
                     <Route path='/blog' component={Blog}/>
                     <Route path='/bio' component={Bio}/>
                     <Route path='/shop' component={Shop}/>

@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
-import {createPost} from '../actions/postAction'
-import mapDispatchToProps from "react-redux/es/connect/mapDispatchToProps";
+import {createPost} from '../../actions/postAction'
 
 class NewPost extends Component {
     state = {
@@ -12,7 +11,6 @@ class NewPost extends Component {
     handleSubmit = e => {
         e.preventDefault();
         if (this.state.title.trim() && this.state.body.trim()) {
-            console.log(this.state);
             this.props.onAddPost(this.state);
             this.handleReset();
         }
@@ -20,7 +18,7 @@ class NewPost extends Component {
 
     handleInputChange = (e) => {
         this.setState({
-            [e.target.value]: e.target.value,
+            [e.target.name]: e.target.value,
         })
     };
 
@@ -29,14 +27,6 @@ class NewPost extends Component {
             title: "",
             body: "",
         })
-    };
-
-    const mapDispatchToProps = dispatch => {
-        return {
-            onAddPost: post => {
-                dispatch(createPost(post))
-            }
-        }
     };
 
     render() {
@@ -76,5 +66,12 @@ class NewPost extends Component {
     }
 }
 
+const mapDispatchToProps = dispatch => ({
+    onAddPost: post => {
+        dispatch(createPost(post))
+    }
+});
 
-export default connect(null, mapDispatchToProps)(NewPost);
+export default connect(
+    null,
+    mapDispatchToProps)(NewPost);
