@@ -32,7 +32,7 @@ class NewPost extends Component {
     render() {
         return (
             <div>
-                <form>
+                <form onChange={this.handleSubmit}>
                     <div>
                         <input type="text"
                                placeholder="Title"
@@ -54,13 +54,10 @@ class NewPost extends Component {
                         </textarea>
                     </div>
                     <div>
-                        <button onClick={this.handleSubmit}
-                                type="submit"
-                                className="btn btn-primary">Add Post
-                        </button>
+                        <button type="submit" className="btn btn-primary">Add Post</button>
                         <button type="button"
                                 className="btn btn-warning"
-                                onClick={this.handleReset}>Reset
+                                onChange={this.handleReset}>Reset
                         </button>
                     </div>
                 </form>
